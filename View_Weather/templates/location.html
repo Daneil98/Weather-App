@@ -1,0 +1,35 @@
+{% load static %}
+
+<html>
+
+    <head>
+        <title>Weather App</title>
+        <link href="{% static "css/base.css" %}" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div>
+            <h2>Today's weather data for {{ meta.location.name }}: </h2>
+            <table class="table text-center">
+                <h3>Location Data<h3>
+                <tr><td> Region:</td><td><b>{{ meta.location.region }}</b></td></tr> 
+                <tr><td> Country:</td><td><b>{{ meta.location.country }}</b></td></tr>  
+                <tr><td> Latitude and Longitude:</td><td><b>{{ meta.location.lat }}, {{ meta.location.lon }}</b></td></tr>
+                <tr><td> Continent:</td><td><b>{{ meta.location.tz_id }}</b></td></tr> 
+                <tr><td> Localtime:</td><td><b>{{ meta.location.localtime}}</b></td></tr>  
+            </table>
+            <h3>Weather conditions</h3>
+            <table class="table text-center">
+                <tr><td> Temperature(C):</td><td><b>{{ meta.current.temp_c }}</b></td></tr> 
+                <tr><td> Condition:</td><td><b>{{ meta.current.condition.text }}</b></td></tr>  
+                <tr><td> Wind (kph, mph):</td><td><b>{{ meta.current.wind_kph }}, {{ meta.current.wind_mph }}</b></td></tr>
+                <tr><td> Pressure(mb, in):</td><td><b>{{ meta.current.pressure_mb }}, {{ meta.current.pressure_in }}</b></td></tr> 
+                <tr><td> Precipiation(mm, in):</td><td><b>{{ meta.current.precip_mm }}, {{ meta.current.precip_in }}</b></td></tr>
+                <tr><td> Humidity:</td><td><b>{{ meta.current.humidity }}</b></td></tr>
+                <tr><td> Wind Gust(kph, mph):</td><td><b>{{ meta.current.gust_kph }}, {{ meta.current.gust_mph }}</b></td></tr>
+            </table>
+            <p> Although today's temperature is: <b>{{ meta.current.temp_c }} </b> degrees celcius, it certainly feels like <b>{{ meta.current.feelslike_c }}</b> degrees celcius </p>
+        </div>
+    </body>
+
+</html>
